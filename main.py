@@ -1,3 +1,4 @@
+import sys
 from docxtpl import DocxTemplate
 from key import context
 
@@ -16,3 +17,4 @@ if __name__ == '__main__':
 
     pas = Passport()
     pas.run()
+    sys.exit()
