@@ -1,10 +1,11 @@
 from docxtpl import DocxTemplate
+from key import context
 
 
 class Passport:
     def __init__(self):
         self.doc = DocxTemplate('temp.docx')
-        self.context = {'name': 'Кантователь плит'}
+        self.context = context
 
     def run(self):
         self.doc.render(self.context)
