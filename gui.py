@@ -1,11 +1,10 @@
-import sys
 import PySimpleGUI as sg
-from os import walk
+
 
 class Interface:
     def __init__(self):
         self.theme = sg.theme('DarkGrey5')
-        self.size = (480, 480)
+        self.size = (480, 300)
         self.layout = [[sg.Text('Паспорт на кантователь', font='Monotype', size=(400, 1), justification='center',  )],#relief=sg.RELIEF_RAISED,
           [sg.Text('Ввести номер заявки', size=(15, 1)), sg.InputText('№ Заявки'), ],
             [sg.Text('Ввести Наименование', size=(15, 1)), sg.InputText('Кантователь катушек')],
@@ -15,7 +14,7 @@ class Interface:
                         sg.InputText('Высота, мм', size=(20, 1))],
                        [sg.Text('Мощность', size=(12, 1)), sg.InputText('кВт', size=(14, 1)), sg.Text('Дата готовности', size=(12, 1)), sg.InputText('',size=(14, 1))],
           [sg.Text('_'  * 80)],
-          [sg.Submit("Заполнить", size=(30,2), button_color='green', pad=(120,0))]]
+          [sg.Submit("Заполнить", size=(20,2), button_color='green', pad=(40,0)), sg.Submit("Выход", size=(20,2), button_color='red', pad=(5,0))]]
         self.window = sg.Window("Паспорт кантователя", self.layout, size = self.size)
         self.win_closed = sg.WIN_CLOSED
 
