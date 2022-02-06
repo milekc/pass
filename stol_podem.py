@@ -28,18 +28,14 @@ while True:
     if event == 'Выход' or event == sg.WIN_CLOSED:
         break
     elif event == 'Заполнить' or event == sg.OK:
-        context = {'name': values['-name-'],
-                   'length': values['-length-'],
-                   'height': values['-height-'],
-                   'year': year[-1],
-                   'width': values['-width-'],
-                   'date': values['-date-'],
-                   'order': values['-order-'],
-                   'tip': values['-type-'],
-                   'power': values['-power-']}
+        context = {'load_capacity': values['-load_capacity-'], 'height': values['-height-'],
+                   'width': values['-width-'], 'payment': values['-payment-'], 'type': values['-type-'],
+                   'order': values['-order-'], 'height_down': values['-height_down-'], 'length': values['-length-']}
         file_name = context['order'] + ' ' + context['name']
         doc.render(context)
         doc.save(f'{file_name}.docx')
         break
 
 window.close()
+
+'payment'
