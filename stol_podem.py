@@ -1,11 +1,11 @@
 import PySimpleGUI as sg
 from docxtpl import DocxTemplate
 
-doc = DocxTemplate('temp.docx')
+doc = DocxTemplate('temp_stol.doc')
 # Интерфейс
 sg.theme('DarkGrey5')
 size = (480, 300)
-layout = [[sg.Text('Паспорт на кантователь', size=(400, 1), justification='center', )],  # relief=sg.RELIEF_RAISED,
+layout = [[sg.Text('Паспорт на стол подъема', size=(400, 1), justification='center', )],  # relief=sg.RELIEF_RAISED,
           [sg.Text('Ввести номер заявки', size=(15, 1), ), sg.InputText('№ Заявки', key='-order-')],
           [sg.Text('Ввести Наименование', size=(15, 1)),
            sg.InputText('Кантователь катушек', enable_events=True, key='-name-')],
@@ -19,7 +19,7 @@ layout = [[sg.Text('Паспорт на кантователь', size=(400, 1), 
           [sg.Text('_' * 80)],
           [sg.OK('Заполнить', size=(20, 2), button_color='green', pad=(40, 0)),
            sg.Cancel("Выход", size=(20, 2), button_color='red', pad=(5, 0))]]
-window = sg.Window("Паспорт кантователя", layout, size=size)
+window = sg.Window("Паспорт для стола подъемного", layout, size=size)
 
 # работа приложения и отработка кнопок
 while True:
