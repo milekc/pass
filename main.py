@@ -12,6 +12,8 @@ class Passport:
         self.context = context
         self.interface = Interface()
 
+
+
     def run(self):
         self.doc.render(self.context)
         self.doc.save('pass.docx')
@@ -21,9 +23,14 @@ class Passport:
             self._check_event()
             self.values = self.interface.window.read()  # Смотрим по работе
 
+
     def _check_event(self):
         for event in self.interface.window.read():
             if event == 'Выход' or event == self.interface.win_closed:
+                sys.exit()
+
+            elif event == 'Заполнить':
+                self.run()
                 sys.exit()
 
 

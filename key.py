@@ -1,12 +1,10 @@
-# Сбор ключей
-# tpl=DocxTemplate('temp.docx')
-# tpl.render(context)
-# set_of_variables = tpl.get_undeclared_template_variables()
+from gui import Interface as ifc
+
+# name = ifc().name
 #
-# print(set_of_variables)
+# context = {'name': name}
 
-
-context = {'name': 'Кантователь плит',
+context = {'name': 'name',
            'length': '1000',
            'height': '300',
            'year': '2022',
