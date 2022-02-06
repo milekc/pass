@@ -4,12 +4,13 @@ from docxtpl import DocxTemplate
 doc = DocxTemplate('temp.docx')
 # Интерфейс
 sg.theme('DarkGrey5')
-size = (480, 300)
+size = (480, 320)
 layout = [[sg.Text('Паспорт на кантователь', size=(400, 1), justification='center', )],  # relief=sg.RELIEF_RAISED,
           [sg.Text('Ввести номер заявки', size=(15, 1), ), sg.InputText('№ Заявки', key='-order-')],
           [sg.Text('Ввести Наименование', size=(15, 1)),
            sg.InputText('Кантователь катушек', enable_events=True, key='-name-')],
           [sg.Text('Ввести тип и г/п', size=(15, 1)), sg.InputText('Кнт -2,5т', key='-type-')],
+          [sg.Text('Грузоподъемность', size=(15, 1)), sg.InputText('2 500 кг', key='-load_capacity-')],
           [sg.Text('_' * 80)], [sg.Text('Размер груза')],
           [sg.InputText('Длина, мм', size=(20, 1), key='-length-'),
            sg.InputText('Ширина/Диаметр, мм', size=(20, 1), key='-height-'),
@@ -36,7 +37,8 @@ while True:
                    'date': values['-date-'],
                    'order': values['-order-'],
                    'tip': values['-type-'],
-                   'power': values['-power-']}
+                   'power': values['-power-'],
+                   'load_capacity': values['-load_capacity-']}
         file_name = context['order'] + ' ' + context['name']
         doc.render(context)
         doc.save(f'{file_name}.docx')
